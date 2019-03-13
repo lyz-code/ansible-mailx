@@ -1,0 +1,7 @@
+---
+# defaults file for mailx
+email:
+  server:
+  user:
+  password:
+  from:

@@ -1,0 +1,22 @@
+---
+# tasks file for mailx
+
+- name: Install required packages
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - heirloom-mailx
+    - sendmail
+
+- name: Configure mailx for the user
+  template:
+    src: mailrc.j2
+    dest: ~/.mailrc
+    mode: 0600
+
+- name: Create mail link
+  file:
+    dest: /usr/bin/mail
+    src: /usr/bin/heirloom-mailx
+    state: link
