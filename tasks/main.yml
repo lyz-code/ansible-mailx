@@ -2,6 +2,7 @@
 # tasks file for mailx
 
 - name: Install required packages
+  become: True
   package:
     name: "{{ item }}"
     state: present
@@ -10,12 +11,14 @@
     - sendmail
 
 - name: Configure mailx for the user
+  become: True
   template:
     src: mailrc.j2
     dest: ~/.mailrc
     mode: 0600
 
 - name: Create mail link
+  become: True
   file:
     dest: /usr/bin/mail
     src: /usr/bin/heirloom-mailx
