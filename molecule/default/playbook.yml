@@ -1,0 +1,11 @@
+---
+- name: Converge
+  hosts: all
+  vars:
+    email:
+      server: smtp://disroot.org:587
+      user: secretuser
+      password: secretpassword
+      from: secretuser@disroot.org
+  roles:
+    - role: mailx
