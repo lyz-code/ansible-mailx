@@ -7,7 +7,7 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 
 
 @pytest.mark.parametrize("packages", [
-    ('heirloom-mailx'),
+    ('bsd-mailx'),
     ('sendmail'),
 ])
 def test_mailx_is_installed(host, packages):
